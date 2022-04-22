@@ -28,9 +28,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="1.377301"
-     inkscape:cx="362.66583"
-     inkscape:cy="461.04665"
+     inkscape:zoom="0.97389887"
+     inkscape:cx="308.5536"
+     inkscape:cy="416.88107"
      inkscape:window-width="1860"
      inkscape:window-height="1043"
      inkscape:window-x="60"
@@ -44,6 +44,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-28.783199,-41.341506)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.04011;stroke-linejoin:round"
+       id="rect17122"
+       width="278.2749"
+       height="31.595663"
+       x="29.114567"
+       y="41.597469" />
     <image
        width="278.60626"
        height="197.11458"
@@ -3473,7 +3480,7 @@ n5BOByGEEEIIIYQQQvQJY8BhoJMQQgghhBBCCCHEj079/wJjSsFV7qsxcgAAAABJRU5ErkJggg==
          y="110.55068">?</tspan></text>
     <path
        style="fill:#008000;stroke:#000000;stroke-width:0.0759785px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 32.973004,46.807119 1.898054,-1.945768 2.042972,2.029252 5.311257,-5.495005 1.864114,1.851603 -7.300674,7.350023 z"
+       d="m 32.973004,47.865453 1.898054,-1.945768 2.042972,2.029252 5.311257,-5.495005 1.864114,1.851603 -7.300674,7.350023 z"
        id="path4298"
        sodipodi:nodetypes="ccccccc" />
     <text
@@ -3490,14 +3497,14 @@ n5BOByGEEEIIIYQQQvQJY8BhoJMQQgghhBBCCCHEj079/wJjSsFV7qsxcgAAAABJRU5ErkJggg==
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:4.58611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;stroke-width:0.30101"
-       x="60.616169"
-       y="49.760189"
+       x="176.56442"
+       y="62.821117"
        id="text5112"><tspan
          sodipodi:role="line"
          id="tspan5110"
          style="font-size:4.58611px;text-align:start;text-anchor:start;stroke-width:0.30101"
-         x="60.616169"
-         y="49.760189">?: I don't understand this functionnality</tspan></text>
+         x="176.56442"
+         y="62.821117">?: I don't understand this shortcuts</tspan></text>
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:14.3388px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#501616;stroke-width:0.358471"
@@ -3519,7 +3526,7 @@ n5BOByGEEEIIIYQQQvQJY8BhoJMQQgghhBBCCCHEj079/wJjSsFV7qsxcgAAAABJRU5ErkJggg==
          id="tspan10502"
          style="font-size:4.58611px;text-align:start;text-anchor:start;stroke-width:0.264583"
          x="186.37872"
-         y="49.574333">: not interresting for CppVimTerminal</tspan></text>
+         y="49.574333">: not interresting for VimTerminal</tspan></text>
     <circle
        style="fill:#501616;fill-opacity:1;stroke:none;stroke-width:0.773598;stroke-linejoin:round"
        id="path12142"
@@ -3529,14 +3536,14 @@ n5BOByGEEEIIIYQQQvQJY8BhoJMQQgghhBBCCCHEj079/wJjSsFV7qsxcgAAAABJRU5ErkJggg==
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:4.58611px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
-       x="59.818035"
-       y="58.278145"
+       x="55.055534"
+       y="58.807312"
        id="text13834"><tspan
          sodipodi:role="line"
          id="tspan13832"
          style="font-size:4.58611px;stroke-width:0.264583"
-         x="59.818035"
-         y="58.278145">:Maybe later</tspan></text>
+         x="55.055534"
+         y="58.807312">:Maybe later</tspan></text>
     <path
        style="fill:#008000;stroke:#000000;stroke-width:0.0476062px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 118.49119,100.26225 1.18928,-1.219166 1.28007,1.271476 3.32791,-3.44303 1.168,1.160168 -4.57442,4.605342 z"
@@ -3599,8 +3606,8 @@ n5BOByGEEEIIIYQQQvQJY8BhoJMQQgghhBBCCCHEj079/wJjSsFV7qsxcgAAAABJRU5ErkJggg==
     <circle
        style="fill:#501616;fill-opacity:1;stroke:none;stroke-width:0.773598;stroke-linejoin:round"
        id="circle14280"
-       cx="39.143475"
-       cy="56.978004"
+       cx="34.380974"
+       cy="57.507172"
        r="2.0087967" />
     <circle
        style="fill:#501616;fill-opacity:1;stroke:none;stroke-width:0.773598;stroke-linejoin:round"
