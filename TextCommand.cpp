@@ -44,7 +44,7 @@ void TextCommand::writeChar(const wchar_t cc) {
 			if (m_curseur+1 < m_cmdLine.size())
 				m_curseur++;
 		} else if (cc == L'a') {
-			if (m_curseur+1 < m_cmdLine.size()) {
+			if (0 != m_cmdLine.size()) {
 				m_curseur++;
 			}
 			m_mode = INSERTION;
@@ -165,6 +165,31 @@ void TextCommand::writeChar(const wchar_t cc) {
 				}
 			}
 
+		} else if (cc == L'w') {
+			bool space {false};
+			for (;m_curseur < m_cmdLine.size();m_curseur++) {
+				if (m_cmdLine[m_curseur] == L' ') {
+					space = true;
+				} else if (space) {
+					return;
+				}
+			}
+		} else if (cc == L'b') {
+			int space {0};
+			for (;m_curseur > 0;m_curseur--) {
+				if (m_cmdLine[m_curseur] == L' ') {
+					if (space == 0) {
+						space = 1;
+					} else {
+						m_curseur++;
+						return;
+					}
+				} else if (space == 1) {
+					if (m_cmdLine[m_curseur] != L' ') {
+						space = 2;
+					}
+				} 
+			}
 		}
 	}
 		
@@ -173,6 +198,13 @@ void TextCommand::writeChar(const wchar_t cc) {
 
 void TextCommand::changeMode(Mode mm) {
 	m_mode = mm;
+}
+
+void TextCommand::clear() {
+	m_cmdLine.clear();
+	m_mode = NORMAL;
+	m_curseur = 0;
+	m_error.clear();
 }
 
 const std::wstring TextCommand::getFinalCmdLine() {

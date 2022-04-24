@@ -17,6 +17,8 @@ class TextCommand {
 		const long getCurseur();
 		~TextCommand();
 
+		void clear();
+
 		const std::string getCurrentMode();
 
 		const std::wstring rwFindWordArroundCursor();

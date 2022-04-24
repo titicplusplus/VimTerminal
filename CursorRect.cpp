@@ -3,7 +3,7 @@
 #include <chrono>
 
 
-CursorRect::CursorRect(float size, int heigth) {
+CursorRect::CursorRect(float size, float heigth) {
 	m_time = std::chrono::steady_clock::now();
 	m_rect.setSize(sf::Vector2f(size, heigth));
 }

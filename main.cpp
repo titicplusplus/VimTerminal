@@ -6,13 +6,17 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Font.hpp>
 
-#include "Interact.hpp"
-#include "TextCommand.hpp"
+//#include "Interact.hpp"
+//#include "TextCommand.hpp"
 #include "CursorRect.hpp"
 #include <unistd.h>
 #include <csignal>
 
+#include "TextBox.hpp"
+
 #include <thread>
+
+#include "Ressources.hpp"
 
 bool contineAlive {true};
 
@@ -24,55 +28,22 @@ void signalEnd(int signal) {
 int main() {
 	//std::signal(SIGINT, signalEnd);
 
-	/**InteractLinux cmd;
-
-	cmd.toWrite("w\n");
-	cmd.toWrite("make\n");
-	cmd.toWrite("pwd\n");
-
-	while (contineAlive) {
-		std::string command { cmd.getResult() };
-
-		std::cout << command;
-
-		if (command.size() > 2) {
-			std::cout << int(command[command.size() - 2]) << " "
-			<< int(command[command.size() - 1]) << "\n";
-		}
-	}
-
-	return 0;**/
-
 	sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
-	sf::RenderWindow window(sf::VideoMode(800, 600), "CppMinTerminal", sf::Style::Default);
+	sf::RenderWindow window(desktop, "CppMinTerminal", sf::Style::Default);
 	window.setFramerateLimit(60);
 
 	sf::View viewTerminal { sf::FloatRect(0, 0, window.getSize().x, window.getSize().y) };
 
-	const int textFontSize = 34;
-	const float textSize = 21.03125;
+	Ressources res;
 
-	sf::Font font;
-	if (!font.loadFromFile("fonts/Sono-Regular.ttf")) {
-		std::cerr << "Can't open fond" << "\n";
-		return -1;
-	}
+	CursorRect rectCursor {res.getFontWeigthSize(), res.getFontHeigthSize()};
+	//rectCursor.move(text.getPosition(), vimText.getCurseur(), res.getFontWeigthSize());
+	
+	int currentFocus = 0;
 
-	sf::Text text;
-	text.setFont(font);
-	text.setCharacterSize(textFontSize);
-	text.setPosition(sf::Vector2f(10, 10));
+	std::vector<TextBox> m_textBox;
 
-	sf::Text textMode;
-	textMode.setFont(font);
-	textMode.setCharacterSize(textFontSize);
-	textMode.setPosition(sf::Vector2f(10, window.getSize().y - 10 - textFontSize));
-
-	TextCommand vimText;
-	textMode.setString(vimText.getCurrentMode());
-
-	CursorRect rectCursor {textSize, 34};
-	rectCursor.move(text.getPosition(), vimText.getCurseur(), textSize);
+	m_textBox.push_back( TextBox{sf::Vector2f(0, 0), window.getSize(), res} );
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -80,19 +51,22 @@ int main() {
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			} else if (event.type == sf::Event::TextEntered) {
-				std::cout << "ASCII character typed: " << static_cast<wchar_t>(event.text.unicode) << "\n";
-				if (event.text.unicode == 13) {
-				} else {
-					vimText.writeChar(event.text.unicode);
-					rectCursor.currentWrite();
+				std::cout << "ASCII character typed: " << event.text.unicode << "\n";
+				
+				int i = m_textBox[currentFocus].sendText(event.text.unicode);
 
-					text.setString(vimText.getFinalCmdLine());
-					textMode.setString(vimText.getCurrentMode());
-					rectCursor.move(text.getPosition(), vimText.getCurseur(), textSize);
+				if (i == 1) {
+					window.close();
 				}
-			} if (event.type == sf::Event::Resized) {
+			}
+		       
+			if (event.type == sf::Event::Resized) {
 				viewTerminal.reset(sf::FloatRect(0, 0, event.size.width, event.size.height));
-				textMode.setPosition(sf::Vector2f(10, window.getSize().y - 10 - textFontSize));
+
+				for (auto &ttBox : m_textBox) {
+					ttBox.resize(sf::Vector2f(0, 0), window.getSize());
+				}
+
 		       	}
 		}
 
@@ -100,9 +74,11 @@ int main() {
 
 		window.setView(viewTerminal );
 
-		rectCursor.draw(window);
-		window.draw(text);
-		window.draw(textMode);
+		//rectCursor.draw(window);
+	
+		for (const auto &ttBox : m_textBox) {
+			ttBox.draw(window);
+		}
 
         	window.display();
     	}

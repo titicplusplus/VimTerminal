@@ -11,7 +11,7 @@ class CursorRect {
 	short m_draw;
 
 	public:
-		CursorRect(float size, int heigth);
+		CursorRect(float size, float heigth);
 		void move(const sf::Vector2f &pos, int currentPosition, float size);
 		void currentWrite();
 		void draw(sf::RenderWindow &window);
