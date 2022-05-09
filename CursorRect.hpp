@@ -12,7 +12,7 @@ class CursorRect {
 
 	public:
 		CursorRect(float size, float heigth);
-		void move(const sf::Vector2f &pos, int currentPosition, float size);
+		void move(const sf::Vector2f &pos);
 		void currentWrite();
 		void draw(sf::RenderWindow &window);
 };

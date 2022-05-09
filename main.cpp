@@ -27,7 +27,7 @@ void signalEnd(int signal) {
 
 int main() {
 	//std::signal(SIGINT, signalEnd);
-
+	
 	sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
 	sf::RenderWindow window(desktop, "CppMinTerminal", sf::Style::Default);
 	window.setFramerateLimit(60);
@@ -44,6 +44,7 @@ int main() {
 	std::vector<TextBox> m_textBox;
 
 	m_textBox.push_back( TextBox{sf::Vector2f(0, 0), window.getSize(), res} );
+	rectCursor.move(m_textBox[currentFocus].actualCursorPosition());
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -58,6 +59,9 @@ int main() {
 				if (i == 1) {
 					window.close();
 				}
+
+				rectCursor.move(m_textBox[currentFocus].actualCursorPosition());
+				rectCursor.currentWrite();
 			}
 		       
 			if (event.type == sf::Event::Resized) {
@@ -70,12 +74,15 @@ int main() {
 		       	}
 		}
 
+		for (auto &ttBox : m_textBox) {
+			ttBox.move();
+		}
+
 		window.clear(sf::Color::Black);
 
 		window.setView(viewTerminal );
 
-		//rectCursor.draw(window);
-	
+		rectCursor.draw(window);
 		for (const auto &ttBox : m_textBox) {
 			ttBox.draw(window);
 		}

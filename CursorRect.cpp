@@ -8,8 +8,8 @@ CursorRect::CursorRect(float size, float heigth) {
 	m_rect.setSize(sf::Vector2f(size, heigth));
 }
 	
-void CursorRect::move(const sf::Vector2f &pos, int currentPosition, float size) {
-	m_rect.setPosition(sf::Vector2f(pos.x + static_cast<float>(currentPosition)*size, pos.y));
+void CursorRect::move(const sf::Vector2f &pos) {
+	m_rect.setPosition(sf::Vector2f(pos.x, pos.y));
 }
 
 void CursorRect::currentWrite() {

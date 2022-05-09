@@ -13,6 +13,7 @@ add_executable(
 	TextCommand.cpp
 	CursorRect.cpp
 	Ressources.cpp
+	ExecProcess.cpp
 )
 
 target_link_libraries(

@@ -8,6 +8,7 @@
 
 #include "TextCommand.hpp"
 #include "Ressources.hpp"
+#include "Interact.hpp"
 
 #ifndef __has_include
   static_assert(false, "__has_include not supported");
@@ -38,13 +39,18 @@ class TextBox {
 
 	std::size_t m_shiftStart;
 	std::size_t m_shiftEnd;
+
 	bool canWrite {true};
+	int newLine {2};
+
 	std::vector<wchar_t> tmpCC;
 
 	void newText();
 	void findShift();
 
 	fs::path currentPath;
+
+	InteractLinux m_cmdRun;
 
 	public:
 		TextBox(sf::Vector2f positon, sf::Vector2u size, const Ressources &res);
@@ -54,4 +60,7 @@ class TextBox {
 		void resize(sf::Vector2f positon, sf::Vector2u size);
 		void draw(sf::RenderWindow &window) const;
 
+		void move();
+
+		sf::Vector2f actualCursorPosition();
 };

@@ -1,8 +1,8 @@
 #include "Ressources.hpp"
 #include <iostream>
 
-Ressources::Ressources() : textFontSize {34}, textSize {21.03125} {
-	if (!m_font.loadFromFile("fonts/Sono-Regular.ttf")) {
+Ressources::Ressources() : textFontSize {34}, textSize {17.4} {
+	if (!m_font.loadFromFile("fonts/UbuntuMono-R.ttf")) {
 		std::cerr << "Can't open fond" << "\n";
 	}
 }
